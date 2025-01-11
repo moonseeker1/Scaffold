@@ -2,12 +2,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
     <groupId>com.moonSeeker</groupId>
     <artifactId>Scaffold</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
+
     <name>Scaffold</name>
     <description>Scaffold</description>
+
     <modules>
         <module>auth</module>
         <module>common</module>
@@ -31,11 +34,11 @@
         <spring-boot-admin.version>3.2.2</spring-boot-admin.version>
         <spring-cloud.version>2023.0.1</spring-cloud.version>
         <spring-cloud-alibaba.version>2023.0.1.0</spring-cloud-alibaba.version>
+        <spring-framework.version>6.1.0</spring-framework.version>
         <hutool.version>5.8.16</hutool.version>
         <knife4j.version>4.5.0</knife4j.version>
         <springdoc-openapi.version>2.3.0</springdoc-openapi.version>
         <druid.version>1.2.21</druid.version>
-        <pagehelper-spring-boot-starter.version>2.1.0</pagehelper-spring-boot-starter.version>
         <mybatis-spring-boot-starter.version>3.0.3</mybatis-spring-boot-starter.version>
         <mybatis-generator.version>1.4.2</mybatis-generator.version>
         <mysql-connector.version>8.0.28</mysql-connector.version>
@@ -43,50 +46,24 @@
         <jjwt.version>0.9.1</jjwt.version>
         <jaxb-api.version>2.3.1</jaxb-api.version>
         <pagehelper.version>6.1.0</pagehelper.version>
-        <sa-token.version>1.37.0</sa-token.version>
+        <fastjson.version>2.0.43</fastjson.version>
+        <javax.servlet-api.version>4.0.1</javax.servlet-api.version>
+        <lombok.version>1.18.4</lombok.version>
+        <spring-cloud-starter-bootstrap.version>3.0.2</spring-cloud-starter-bootstrap.version>
     </properties>
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-seata</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-stream-rocketmq</artifactId>
-        </dependency>
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>cn.hutool</groupId>
-            <artifactId>hutool-all</artifactId>
-            <version>${hutool.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
-    </dependencies>
     <dependencyManagement>
         <dependencies>
+            <!-- SpringFramework的依赖配置-->
             <dependency>
-                <groupId>com.alibaba.cloud</groupId>
-                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
-                <version>${spring-cloud-alibaba.version}</version>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-framework-bom</artifactId>
+                <version>${spring-framework.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
+            <!-- SpringCloud 微服务 -->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
@@ -94,6 +71,17 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
+            <!-- SpringCloud Alibaba 微服务 -->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- SpringBoot 依赖配置 -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
@@ -101,7 +89,55 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+            </dependency>
+
+            <!-- JSON 解析器和生成器 -->
+            <dependency>
+                <groupId>com.alibaba.fastjson2</groupId>
+                <artifactId>fastjson2</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+            <!-- Jwt -->
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>${jjwt.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>${javax.servlet-api.version}</version>
+            </dependency>
+            <!--Lombok引入-->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-bootstrap</artifactId>
+            </dependency>
+
         </dependencies>
+
     </dependencyManagement>
 
     <build>
