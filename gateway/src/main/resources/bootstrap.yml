@@ -1,39 +1,42 @@
 server:
   port: 8080 #指定运行端口
-# Spring
+
 spring:
   application:
     # 应用名称
-    name: moonSeeker-gateway
+    name: scaffold-gateway-dev
   profiles:
     # 环境配置
-    active: scaffold-dev
+    active: dev
   cloud:
     nacos:
       discovery:
         # 服务注册地址
         server-addr: 39.106.128.29:8848
         group: dev
+        namespace: e0b42dc8-a7c5-4ea2-8449-8ac354314ed6
       config:
         # 配置中心地址
         server-addr: 39.106.128.29:8848
         group: dev
+        namespace: e0b42dc8-a7c5-4ea2-8449-8ac354314ed6
         # 配置文件格式
         file-extension: yml
         # 共享配置
         shared-configs:
           - application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
-    sentinel:
-      # 取消控制台懒加载
-      eager: true
-      transport:
-        # 控制台地址
-        dashboard: 127.0.0.1:8718
-      # nacos配置持久化
-      datasource:
-          nacos:
-            server-addr: 39.106.128.29:8848
-            dataId: sentinel-ruoyi-gateway
-            groupId: DEFAULT_GROUP
-            data-type: json
-            rule-type: gw-flow
+
+#    sentinel:
+#      # 取消控制台懒加载
+#      eager: true
+#      transport:
+#        # 控制台地址
+#        dashboard: 127.0.0.1:8718
+#      # nacos配置持久化
+#      datasource:
+#          nacos:
+#            server-addr: 39.106.128.29:8848
+#            dataId: sentinel-ruoyi-gateway
+#            groupId: DEFAULT_GROUP
+#            data-type: json
+#            rule-type: gw-flow

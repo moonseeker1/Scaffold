@@ -50,6 +50,10 @@
         <javax.servlet-api.version>4.0.1</javax.servlet-api.version>
         <lombok.version>1.18.4</lombok.version>
         <spring-cloud-starter-bootstrap.version>3.0.2</spring-cloud-starter-bootstrap.version>
+        <spring-security-oauth2-autoconfigure.version>2.6.8</spring-security-oauth2-autoconfigure.version>
+        <slf4j-api.version>1.7.36</slf4j-api.version>
+        <logback-classic.version>1.2.2</logback-classic.version>
+        <transmittable-thread-local.version>2.14.4</transmittable-thread-local.version>
     </properties>
 
     <dependencyManagement>
@@ -101,12 +105,6 @@
                 <artifactId>hutool-all</artifactId>
                 <version>${hutool.version}</version>
             </dependency>
-
-            <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-            </dependency>
-
             <!-- JSON 解析器和生成器 -->
             <dependency>
                 <groupId>com.alibaba.fastjson2</groupId>
@@ -131,10 +129,37 @@
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
             </dependency>
+            <!--Spring Cloud Bootstrap-->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-bootstrap</artifactId>
+                <version>${spring-cloud-starter-bootstrap.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>org.springframework.security.oauth.boot</groupId>
+                <artifactId>spring-security-oauth2-autoconfigure</artifactId>
+                <version>${spring-security-oauth2-autoconfigure.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j-api.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${logback-classic.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>transmittable-thread-local</artifactId>
+                <version>${transmittable-thread-local.version}</version>
+            </dependency>
+
 
         </dependencies>
 

@@ -383,6 +383,10 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils
         AntPathMatcher matcher = new AntPathMatcher();
         return matcher.match(pattern, url);
     }
+    public static <T> T cast(Object obj)
+    {
+        return (T) obj;
+    }
 
 
 
