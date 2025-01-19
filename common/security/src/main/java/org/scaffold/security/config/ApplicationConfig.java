@@ -10,7 +10,7 @@ import java.util.TimeZone;
 /**
  * 系统配置
  *
- * @author ruoyi
+ * @author
  */
 public class ApplicationConfig
 {

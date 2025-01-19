@@ -1,8 +1,7 @@
 package org.scaffold.security.service;
 
 
-import com.sun.org.slf4j.internal.Logger;
-import com.sun.org.slf4j.internal.LoggerFactory;
+
 import jakarta.servlet.http.HttpServletRequest;
 import org.scaffold.api.model.LoginUser;
 import org.scaffold.core.constant.CacheConstants;
@@ -10,6 +9,8 @@ import org.scaffold.core.constant.SecurityConstants;
 import org.scaffold.core.util.*;
 import org.scaffold.redis.service.RedisService;
 import org.scaffold.security.utils.SecurityUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

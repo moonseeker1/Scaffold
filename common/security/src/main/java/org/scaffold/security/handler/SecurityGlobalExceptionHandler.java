@@ -2,8 +2,10 @@ package org.scaffold.security.handler;
 
 
 import cn.hutool.core.convert.Convert;
-import com.sun.org.slf4j.internal.Logger;
-import com.sun.org.slf4j.internal.LoggerFactory;
+
+import org.scaffold.core.exception.GlobalExceptionHandler;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import jakarta.servlet.http.HttpServletRequest;
 import org.scaffold.core.api.CommonResult;
 import org.scaffold.core.constant.HttpStatus;
@@ -27,10 +29,10 @@ import org.springframework.validation.BindException;
 /**
  * 全局异常处理器
  *
- * @author ruoyi
+ * @author
  */
 @RestControllerAdvice
-public class GlobalExceptionHandler
+public class SecurityGlobalExceptionHandler
 {
     private static final Logger log = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
