@@ -1,6 +1,7 @@
 package org.scaffold.auth.controller;
 
 
+import org.apache.ibatis.annotations.Mapper;
 import org.scaffold.api.model.LoginUser;
 import org.scaffold.auth.form.LoginBody;
 import org.scaffold.auth.form.RegisterBody;
@@ -13,18 +14,11 @@ import org.scaffold.security.service.TokenService;
 import org.scaffold.security.utils.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import jakarta.servlet.http.HttpServletRequest;
 
-/**
- * token 控制
- * 
- * @author ruoyi
- */
+@RequestMapping ("/auth")
 @RestController
 public class TokenController
 {
@@ -34,7 +28,7 @@ public class TokenController
     @Autowired
     private SysLoginService sysLoginService;
 
-    @PostMapping("login")
+    @PostMapping("/login")
     public R<?> login(@RequestBody LoginBody form)
     {
         // 用户登录
@@ -43,7 +37,7 @@ public class TokenController
         return R.ok(tokenService.createToken(userInfo));
     }
 
-    @DeleteMapping("logout")
+    @DeleteMapping("/logout")
     public R<?> logout(HttpServletRequest request)
     {
         String token = SecurityUtils.getToken(request);
@@ -58,7 +52,7 @@ public class TokenController
         return R.ok();
     }
 
-    @PostMapping("refresh")
+    @PostMapping("/refresh")
     public R<?> refresh(HttpServletRequest request)
     {
         LoginUser loginUser = tokenService.getLoginUser(request);
@@ -71,7 +65,7 @@ public class TokenController
         return R.ok();
     }
 
-    @PostMapping("register")
+    @PostMapping("/register")
     public R<?> register(@RequestBody RegisterBody registerBody)
     {
         // 用户注册
